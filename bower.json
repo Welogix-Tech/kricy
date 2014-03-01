@@ -1,0 +1,25 @@
+{
+  "name": "kricy",
+  "version": "0.0.1",
+  "authors": [
+    "Kurten Chan <kurten.chan@qeemo.me>"
+  ],
+  "description": "QeeMo yun56.co Cloud Platform",
+  "main": "app.js",
+  "keywords": [
+    "javascript"
+  ],
+  "license": "MIT",
+  "homepage": "http://ikurten.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+  }
+}
