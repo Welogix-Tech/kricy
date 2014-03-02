@@ -1,1 +1,0 @@
-console.log(new Error('sdfadsfa').stack);
