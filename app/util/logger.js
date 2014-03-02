@@ -2,11 +2,11 @@
  * logger.js
  * Copyright (C) 2014 Kurten Chan <chinkurten@gmail.com>
  * 
- * Distributed under terms of the BSD license.
+ * Distributed under terms of the MIT license.
  */
 var log4js = require("log4js");
 var path = require("path");
-var _categoryName = "default";
+var _categoryName = "kricy";
 
 function getLogger(fileName, pid) {
     var ctname = _categoryName;

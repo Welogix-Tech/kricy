@@ -1,0 +1,4 @@
+	{+JsBefore}{/JsBefore}
+	<script type="text/javascript" src="{resource_url}/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+	{+JsAfter}{/JsAfter}
+    <script type="text/javascript" src="{resource_url}/bootstrap/2.3.1/js/bootstrap.min.js"></script>

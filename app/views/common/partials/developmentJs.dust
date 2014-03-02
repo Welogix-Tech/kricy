@@ -1,0 +1,4 @@
+	{+JsBefore}{/JsBefore}
+	<script type="text/javascript" src="/deps/jquery/jquery.js"></script>
+	{+JsAfter}{/JsAfter}
+    <script type="text/javascript" src="/deps/bootstrap/docs/assets/js/bootstrap.js"></script>

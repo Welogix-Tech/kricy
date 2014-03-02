@@ -2,7 +2,7 @@
  * moduleLoader.js
  * Copyright (C) 2014 Kurten Chan <chinkurten@gmail.com>
  * 
- * Distributed under terms of the BSD license.
+ * Distributed under terms of the MIT license.
  */
 var fs = require('fs');
 var Path = require('path');
@@ -52,12 +52,18 @@ function bindMod2App(app, subpath) {
         return;
     }
     // example mod => {method:'get', path:'/hello', fun:hello}
-    if (!!mod.method && !!mod.path && !!mod.fun) {
+    if (!!mod.path && !!mod.fun) {
+        if (!mod.method) {
+            mod.method = 'get';
+        }
         console.log(mod);
         app[mod.method](mod.path, mod.fun);
     } else {
         for (var key in mod) {
             var obj = mod[key];
+            if (!obj.method) {
+                obj.method = 'get';
+            }
             console.log("route type:["+obj.method+"] path:["+obj.path+"]");
             app[obj.method](obj.path, obj.fun);
         }
@@ -118,6 +124,14 @@ self.search = function(path, cb, filter, ext) {
     if (!ext) {
         ext = '.js|.coffee';
     }
+    var sts = fs.statSync(path);
+    if (sts.isFile()) {
+        if (endWiths(path, ext)) {
+            path = basename(path, ext);
+            cb && cb(path);
+        }
+        return;
+    }
     fs.readdirSync(path).filter(function(name) {
         if (!!filter && typeof filter == 'function') {
             return filter.call(filter, name);
@@ -126,9 +140,11 @@ self.search = function(path, cb, filter, ext) {
     }).forEach(function (file) {
         var subpath = Path.join(path, file);
         var stats = fs.statSync(subpath);
-        if (stats.isFile() && endWiths(file, ext)) {
-            subpath = basename(subpath, ext);
-            cb && cb(subpath);
+        if (stats.isFile()) {
+            if (endWiths(file, ext)) {
+                subpath = basename(subpath, ext);
+                cb && cb(subpath);
+            }
         } else {
             fs.readdirSync(subpath).filter(function(name) {
                 if (!!filter && typeof filter == 'function') {
@@ -155,7 +171,7 @@ function basename(src, ext) {
         for (var i = 0; i < es.length; i++) {
             var t = es[i];
             if (src.substr(src.length - t.length) == t) {
-                return Path.basename(src, t);
+                return src.replace(t, '');
             }
         }
     }

@@ -4,13 +4,13 @@
   "authors": [
     "Kurten Chan <kurten.chan@qeemo.me>"
   ],
-  "description": "QeeMo yun56.co Cloud Platform",
+  "description": "kricy",
   "main": "app.js",
   "keywords": [
     "javascript"
   ],
   "license": "MIT",
-  "homepage": "http://ikurten.com",
+  "homepage": "http://github.com/kurten/kricy",
   "private": true,
   "ignore": [
     "**/.*",
@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-
+    "bootstrap" : "2.3.1"
   }
 }

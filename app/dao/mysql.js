@@ -2,7 +2,7 @@
  * mysql.js
  * Copyright (C) 2014 Kurten Chan <chinkurten@gmail.com>
  * 
- * Distributed under terms of the BSD license.
+ * Distributed under terms of the MIT license.
  */
 var log = require("../util/logger").getLogger(__filename, process.pid);
 var _poolModule = require('generic-pool');

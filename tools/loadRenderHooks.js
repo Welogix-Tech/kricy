@@ -2,7 +2,7 @@
  * loadRenderHooks.js
  * Copyright (C) 2014 Kurten Chan <chinkurten@gmail.com>
  * 
- * Distributed under terms of the BSD license.
+ * Distributed under terms of the MIT license.
  */
 var log = require('../app/util/logger').getLogger(__filename, process.pid);
 var async = require('async');
@@ -91,6 +91,7 @@ exports.newAppRender = function(app, path) {
                 if (!!err) {
                     log.error(err);
                 }
+                console.log(results);
                 app.render(view, options, fn);
             });
             return;

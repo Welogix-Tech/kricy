@@ -1,4 +1,9 @@
-
+/*
+ * configurable.js
+ * Copyright (C) 2014 Kurten Chan <chinkurten@gmail.com>
+ * 
+ * Distributed under terms of the MIT license.
+ */
 /**
  * Make `obj` configurable.
  *
@@ -44,12 +49,13 @@ module.exports = function(obj){
     };
 
     for (var key in obj) {
-        if (obj.hasOwnProperty(key)) {
+        if (obj.hasOwnProperty(key) && key != 'settings') {
             if (typeof obj[key] != 'function') {
                 obj.set(key, obj[key]);
                 delete obj[key];
             }
         }
-    }    
+    }
+    
     return obj;
 };
